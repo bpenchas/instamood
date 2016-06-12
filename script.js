@@ -22,6 +22,15 @@ $(document).ready(function() {
 });
 
 function handleResponse(response) {
-  console.log(response);
-  // add stuff here!
+    console.log(response);
+    var results = response.data;
+    for (i = 0; i < results.length; i++) {
+        var res = results[i];
+        console.log(res);
+        var image = $("<img src=" + res.images.standard_resolution.url + ">");
+        $("body").append(image);
+
+        var cap = $("<h2>" + res.caption.text + "</h2>");
+        $("body").append(cap);
+    }
 }
